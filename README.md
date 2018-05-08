@@ -24,7 +24,7 @@ An Ansible Role to create a Credential in Ansible Tower.
 ---
 - hosts: all
   roles:
-    - role: "tower-credential"
+    - role: "genie-credentials"
       tower_url: "https:/my-tower-server.foo.bar"
       tower_verify_ssl: False
       tower_user: "admin"
@@ -49,7 +49,7 @@ An Ansible Role to create a Credential in Ansible Tower.
     tower_pass: "{{ my_tower_vault_pass }}"
     tower_org: "MY_ORG"
     my_cred_loop_var:
-      - name: "Dog"
+      - name: "doG"
         tower_cred_user: "root"
         tower_cred_pass: "{{ my_cred_vault_pass }}"
         tower_cred_desc: "High-level special account for doing Ansible work"
@@ -63,7 +63,7 @@ An Ansible Role to create a Credential in Ansible Tower.
   tasks:
     - name: "Create a bunch of credentials in Ansible Tower"
       include_role:
-        name: "tower-credential"
+        name: "genie-credentials"
       vars:
         tower_cred_name: "{{ cred.name }}"
         tower_cred_user: "{{ cred.tower_cred_user }}"
