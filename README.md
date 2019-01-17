@@ -1,4 +1,4 @@
-# genie-credentials
+# ansible_tower_genie_credentials
 ## Description
 An Ansible Role to create a Credential in Ansible Tower.
 ## Variables
