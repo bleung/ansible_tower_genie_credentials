@@ -79,5 +79,8 @@ An Ansible Role to create a Credential in Ansible Tower.
         label: "{{ cred.name }}"
       no_log: True #if you don't use this your passwords could be exposed to standard out
 ```
+## License
+[MIT](LICENSE)
+
 ## Author  
-[Andrew J. Huffman](mailto:ahuffman@redhat.com)  
+[Andrew J. Huffman](https://github.com/ahuffman)  
