@@ -7,7 +7,6 @@ tower_pass: "" #Put in a vault at vars/tower-secrets.yml when tower_secrets: Tru
 tower_org: ""
 tower_cred_name: ""
 tower_cred_user: ""
-tower_cred_pass: "ASK"
 tower_cred_desc: ""
 tower_cred_type: ""
 # tower_cred_ssh_key_path: ""

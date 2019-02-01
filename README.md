@@ -18,6 +18,8 @@ An Ansible Role to create a Credential in Ansible Tower.
 |`tower_cred_ssh_key_path`|""|no|Path to a SSH private key for an Ansible Tower credential to use.|
 |`tower_cred_ssh_key_pass`|"ASK"|no|Password to unlock a SSH private key.  Use the value "ASK" for password prompting.|
 |`tower_cred_vault_pass`|"ASK"|no|Password for your Ansible Vault file. Use the value "ASK" for password prompting.|
+|`tower_cred_authorize`|False|no|Whether or not to enable Authorize for network devices.|
+|`tower_cred_authorize_password`|""|no|Authorize password for network devices.|
 ## Playbook Examples
 ### Standard Role Usage
 ```yaml

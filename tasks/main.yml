@@ -14,7 +14,7 @@
     tower_verify_ssl: "{{ tower_verify_ssl }}"
     name: "{{ tower_cred_name }}"
     username: "{{ tower_cred_user }}"
-    password: "{{ tower_cred_pass }}"
+    password: "{{ tower_cred_pass | default(omit) }}"
     description: "{{ tower_cred_desc | default(omit) }}"
     ssh_key_data: "{{ tower_cred_ssh_key_path | default(omit) }}"
     ssh_key_unlock: "{{ tower_cred_ssh_key_pass | default(omit) }}"
@@ -55,11 +55,24 @@
     state: "present"
   when: tower_cred_type == "vault"
 
-# TODO:
 # Type net
 - name: Create Ansible Tower Credential | Network Credential
-  debug:
-    msg: "This role does not yet support this type."
+  tower_credential:
+    tower_host: "{{ tower_url }}"
+    tower_username: "{{ tower_user }}"
+    tower_password: "{{ tower_pass }}"
+    organization: "{{ tower_org }}"
+    tower_verify_ssl: "{{ tower_verify_ssl }}"
+    name: "{{ tower_cred_name }}"
+    description: "{{ tower_cred_desc | default(omit) }}"
+    kind: "{{ tower_cred_type }}"
+    username: "{{ tower_cred_user }}"
+    password: "{{ tower_cred_pass | default(omit) }}"
+    ssh_key_data: "{{ tower_cred_ssh_key_path | default(omit) }}"
+    ssh_key_unlock: "{{ tower_cred_ssh_key_pass | default(omit) }}"
+    state: "present"
+    authorize: "{{ tower_cred_authorize | default('False') }}"
+    authorize_password: "{{ tower_cred_authorize_password | default(omit) }}"
   when: tower_cred_type == "net"
 
 # Type aws
