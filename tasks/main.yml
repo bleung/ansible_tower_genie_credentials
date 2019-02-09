@@ -77,8 +77,18 @@
 
 # Type aws
 - name: Create Ansible Tower Credential | Amazon Web Services Credential
-  debug:
-    msg: "This role does not yet support this type."
+  tower_credential:
+    tower_host: "{{ tower_url }}"
+    tower_username: "{{ tower_user }}"
+    tower_password: "{{ tower_pass }}"
+    organization: "{{ tower_org }}"
+    tower_verify_ssl: "{{ tower_verify_ssl }}"
+    name: "{{ tower_cred_name }}"
+    description: "{{ tower_cred_desc | default(omit) }}"
+    kind: "{{ tower_cred_type }}"
+    state: present
+    username: "{{ tower_cred_user }}"
+    password: "{{ tower_cred_pass }}"
   when: tower_cred_type == "aws"
 
 # Type vmware
