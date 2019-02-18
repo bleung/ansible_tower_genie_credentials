@@ -11,8 +11,8 @@ An Ansible Role to create a Credential in Ansible Tower.
 |`tower_pass`|""|yes|Tower Admin User's password on the Ansible Tower Server.  This should be stored in an Ansible Vault at= vars/tower-secrets.yml or elsewhere and called from a parent playbook.|
 |`tower_org`|""|yes|Ansible Tower organization to create the Ansible Tower team in.|
 |`tower_cred_name`|""|yes|Name of the credential to create in Ansible Tower.|
-|`tower_cred_user`|""|yes|Username of the credential.|
-|`tower_cred_pass`|"ASK"|no|Password of the credential.  Not required when using SSH keys.  This value should be stored in an Ansible Vault at vars/tower-secrets.yml.  Use the value "ASK" for password prompting.|
+|`tower_cred_user`|""|yes|Username of the credential. For AWS credentials, this is the access key.|
+|`tower_cred_pass`|"ASK"|no|Password of the credential.  Not required when using SSH keys.  This value should be stored in an Ansible Vault at vars/tower-secrets.yml.  Use the value "ASK" for password prompting. This is **required** for **AWS credentials** and is your secret key.|
 |`tower_cred_desc`|""|no|Description of the credential.|
 |`tower_cred_type`|""|yes|Type of Ansible Tower credential to create.  Value can be one of the following types ssh, vault, net, scm, aws, vmware, satellite6, cloudforms, gce, azure_rm, openstack, rhv, insights, tower.|
 |`tower_cred_ssh_key_path`|""|no|Path to a SSH private key for an Ansible Tower credential to use.|
@@ -20,6 +20,8 @@ An Ansible Role to create a Credential in Ansible Tower.
 |`tower_cred_vault_pass`|"ASK"|no|Password for your Ansible Vault file. Use the value "ASK" for password prompting.|
 |`tower_cred_authorize`|False|no|Whether or not to enable Authorize for network devices.|
 |`tower_cred_authorize_password`|""|no|Authorize password for network devices.|
+
+
 ## Playbook Examples
 ### Standard Role Usage
 ```yaml
